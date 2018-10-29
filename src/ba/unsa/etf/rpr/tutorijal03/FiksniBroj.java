@@ -1,16 +1,9 @@
 package ba.unsa.etf.rpr.tutorijal03;
 
 public class FiksniBroj extends TelefonskiBroj {
-    private Grad gradZaPozivni;
+    Grad gradZaPozivni;
     private String fiksniBroj;
-    public enum Grad{TRAVNIK, ORASJE, ZENICA, SARAJEVO, LIVNO, TUZLA, MOSTAR, BIHAC, GORAZDE, SIROKI_BRIJEG, BRCKO};
-    public FiksniBroj(Grad grad, String broj){
-        gradZaPozivni = grad;
-        fiksniBroj = broj;
-    }
-
-    @Override
-    public int hashCode(){
+    private int pozivni(){
         switch(gradZaPozivni){
             case TRAVNIK: return 30;
             case ORASJE: return 31;
@@ -26,11 +19,21 @@ public class FiksniBroj extends TelefonskiBroj {
         }
         return  0;
     }
+    public enum Grad{TRAVNIK, ORASJE, ZENICA, SARAJEVO, LIVNO, TUZLA, MOSTAR, BIHAC, GORAZDE, SIROKI_BRIJEG, BRCKO};
+    public FiksniBroj(Grad grad, String broj){
+        gradZaPozivni = grad;
+        fiksniBroj = broj;
+    }
+
+    @Override
+    public int hashCode(){
+        return fiksniBroj.hashCode();
+    }
 
     @Override
     public String ispisi(){
         String s = new String();
-        s = "0" + hashCode() + "/" + fiksniBroj;
+        s = "0" + pozivni() + "/" + fiksniBroj;
         return  s;
     }
 

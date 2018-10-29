@@ -10,7 +10,7 @@ public class MedunarodniBroj extends TelefonskiBroj {
 
     @Override
     public int hashCode(){
-        return 1;
+        return broj.hashCode();
     }
 
     @Override
