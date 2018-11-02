@@ -20,6 +20,10 @@ public class FiksniBroj extends TelefonskiBroj {
         fiksniBroj = broj;
     }
 
+    public Grad getGradZaPozivni() {
+        return gradZaPozivni;
+    }
+
     @Override
     public String ispisi(){
         String s = new String();
