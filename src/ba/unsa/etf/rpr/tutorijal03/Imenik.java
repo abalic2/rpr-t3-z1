@@ -37,7 +37,10 @@ public class Imenik {
         return skup;
     }
     public Set<TelefonskiBroj> izGradaBrojevi(FiksniBroj.Grad g){
-        HashSet<TelefonskiBroj> skup = new HashSet<>();
+        TreeSet<TelefonskiBroj> skup = new TreeSet<>();
+        for(Map.Entry<String,TelefonskiBroj>  par : mapa.entrySet()){
+            if(par.getValue() instanceof FiksniBroj && ((FiksniBroj) par.getValue()).getGradZaPozivni().equals(g)) skup.add(par.getValue());
+        }
         return skup;
     }
 
