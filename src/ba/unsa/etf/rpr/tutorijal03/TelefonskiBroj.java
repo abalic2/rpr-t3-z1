@@ -13,4 +13,9 @@ public abstract class TelefonskiBroj implements Comparable<TelefonskiBroj> {
         return  this.ispisi().compareTo(brojTelefona.ispisi());
     }
 
+    @Override
+    public boolean equals(Object o){
+        TelefonskiBroj a = (TelefonskiBroj) o;
+        return this.ispisi().equals(a.ispisi());
+    }
 }

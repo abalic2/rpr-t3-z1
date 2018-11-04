@@ -22,60 +22,8 @@ public class Program {
             ulaz.nextLine();
             switch (unos) {
                 case 1:
-                    System.out.println("Koliko osoba zelite unijeti: ");
-                    int brojOsoba = ulaz.nextInt();
-                    ulaz.nextLine();
-                    for (int i = 0; i < brojOsoba; i++) {
-                        System.out.println("Unesite ime i prezime osobe: ");
-                        String nazivOsobe = ulaz.nextLine();
-                        System.out.println("Unesite: ");
-                        System.out.println("1: Za unos fiksnog broja,");
-                        System.out.println("2: Za unos mobilnog broja,");
-                        System.out.println("3: Za unos medjunarodnog broja");
-                        int vrstaBroja = ulaz.nextInt();
-                        ulaz.nextLine();
-                        String brTelefona = new String();
-                        switch (vrstaBroja) {
-                            case 1:
-                                System.out.println("Unesite grad: ");
-                                String g = ulaz.nextLine();
-                                System.out.println("Unesite broj telefona: ");
-                                brTelefona = ulaz.nextLine();
-                                TelefonskiBroj brojTelefona = new FiksniBroj(FiksniBroj.Grad.valueOf(g.toUpperCase()), brTelefona);
-                                imenik.dodaj(nazivOsobe, brojTelefona);
-                                break;
-
-                            case 2:
-                                System.out.println("Unesite mobilnu mrezu: ");
-                                int mobilnaMreza = ulaz.nextInt();
-                                ulaz.nextLine();
-                                System.out.println("Unesite broj telefona: ");
-                                brTelefona = ulaz.nextLine();
-                                TelefonskiBroj brojMobitela = new MobilniBroj(mobilnaMreza, brTelefona);
-                                imenik.dodaj(nazivOsobe, brojMobitela);
-                                break;
-
-                            case 3:
-                                System.out.println("Unesite drzavu: ");
-                                String drzava = ulaz.nextLine();
-                                System.out.println("Unesite broj telefona: ");
-                                brTelefona = ulaz.nextLine();
-                                ulaz.nextLine();
-                                TelefonskiBroj medjunarodniBroj = new MedunarodniBroj(drzava, brTelefona);
-                                imenik.dodaj(nazivOsobe, medjunarodniBroj);
-                                break;
-                        }
-                    }
-                    break;
-                case 2:
-                    System.out.println("Unesite naziv osobe koju trazite: ");
+                    System.out.println("Unesite ime i prezime osobe: ");
                     String nazivOsobe = ulaz.nextLine();
-                    System.out.print("Broj telefona osobe koju trazite je: " + imenik.dajBroj(nazivOsobe));
-                    break;
-
-
-                case 3:
-                    System.out.println("Unesite broj telefona osobe koju trazite: ");
                     System.out.println("Unesite: ");
                     System.out.println("1: Za unos fiksnog broja,");
                     System.out.println("2: Za unos mobilnog broja,");
@@ -90,8 +38,55 @@ public class Program {
                             System.out.println("Unesite broj telefona: ");
                             brTelefona = ulaz.nextLine();
                             TelefonskiBroj brojTelefona = new FiksniBroj(FiksniBroj.Grad.valueOf(g.toUpperCase()), brTelefona);
-                            System.out.println("Osoba koju trazite je: "+ imenik.dajIme(brojTelefona));
+                            imenik.dodaj(nazivOsobe, brojTelefona);
                             break;
+
+                        case 2:
+                            System.out.println("Unesite mobilnu mrezu: ");
+                            int mobilnaMreza = ulaz.nextInt();
+                            ulaz.nextLine();
+                            System.out.println("Unesite broj telefona: ");
+                            brTelefona = ulaz.nextLine();
+                            TelefonskiBroj brojMobitela = new MobilniBroj(mobilnaMreza, brTelefona);
+                            imenik.dodaj(nazivOsobe, brojMobitela);
+                            break;
+
+                        case 3:
+                            System.out.println("Unesite drzavu: ");
+                            String drzava = ulaz.nextLine();
+                            System.out.println("Unesite broj telefona: ");
+                            brTelefona = ulaz.nextLine();
+                            ulaz.nextLine();
+                            TelefonskiBroj medjunarodniBroj = new MedunarodniBroj(drzava, brTelefona);
+                            imenik.dodaj(nazivOsobe, medjunarodniBroj);
+                            break;
+                    }
+                    break;
+
+                case 2:
+                    System.out.println("Unesite naziv osobe koju trazite: ");
+                    String nnazivOsobe = ulaz.nextLine();
+                    System.out.print("Broj telefona osobe koju trazite je: " + imenik.dajBroj(nnazivOsobe));
+                    break;
+
+                case 3:
+                    System.out.println("Unesite broj telefona osobe koju trazite: ");
+                    System.out.println("Unesite: ");
+                    System.out.println("1: Za unos fiksnog broja,");
+                    System.out.println("2: Za unos mobilnog broja,");
+                    System.out.println("3: Za unos medjunarodnog broja");
+                    vrstaBroja = ulaz.nextInt();
+                    ulaz.nextLine();
+                    switch (vrstaBroja) {
+                        case 1:
+                            System.out.println("Unesite grad: ");
+                            String g = ulaz.nextLine();
+                            System.out.println("Unesite broj telefona: ");
+                            brTelefona = ulaz.nextLine();
+                            TelefonskiBroj brojTelefona = new FiksniBroj(FiksniBroj.Grad.valueOf(g.toUpperCase()), brTelefona);
+                            System.out.println("Osoba koju trazite je: " + imenik.dajIme(brojTelefona));
+                            break;
+
                         case 2:
                             System.out.println("Unesite mobilnu mrezu: ");
                             int mobilnaMreza = ulaz.nextInt();

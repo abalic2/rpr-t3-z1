@@ -10,6 +10,7 @@ public class Imenik {
     public String dajBroj(String ime){
         return mapa.get(ime).ispisi();
     }
+
     public String dajIme(TelefonskiBroj broj){
         for(Map.Entry<String,TelefonskiBroj>  par : mapa.entrySet()) {
             if (par.getValue().equals(broj)) {
